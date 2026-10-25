@@ -1,10 +1,8 @@
 /**
- * Utility to resolve asset URLs correctly when the application is hosted
- * in a subfolder (such as `/plan-28-dias/`) or at root `/`.
- *
- * It preserves external full URLs (http://, https://, data:)
- * and properly prepends Vite's base URL (`import.meta.env.BASE_URL`)
- * to local asset paths (e.g. `/images/...`).
+ * Utility to resolve asset URLs correctly across all hosting environments:
+ * - Vercel root (https://[project].vercel.app/)
+ * - WordPress subfolder (https://codigofisico.online/plan-28-dias/)
+ * - Local development & tests
  */
 export function getAssetUrl(path: string): string {
   if (!path) return '';
@@ -12,19 +10,25 @@ export function getAssetUrl(path: string): string {
     return path;
   }
 
-  // Get base URL from Vite environment, fallback to '/plan-28-dias/' if undefined
-  const rawBase = (typeof import.meta !== 'undefined' && import.meta?.env?.BASE_URL)
-    ? import.meta.env.BASE_URL
-    : '/plan-28-dias/';
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
 
-  // Normalize base and path so we don't have duplicate slashes
-  const normalizedBase = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-
-  // If already prefixed with normalizedBase, don't double prepend
-  if (normalizedBase && (normalizedPath === normalizedBase || normalizedPath.startsWith(`${normalizedBase}/`))) {
-    return normalizedPath;
+  // In browser runtime, detect if hosted under /plan-28-dias subfolder
+  if (typeof window !== 'undefined' && window.location?.pathname) {
+    if (window.location.pathname.includes('/plan-28-dias')) {
+      return `/plan-28-dias/${cleanPath}`;
+    }
   }
 
-  return `${normalizedBase}${normalizedPath}`;
+  // If Vite environment specifies a custom non-relative base (e.g. /plan-28-dias/)
+  const envBase = (typeof import.meta !== 'undefined' && import.meta?.env?.BASE_URL)
+    ? import.meta.env.BASE_URL
+    : '';
+
+  if (envBase && envBase !== './' && envBase !== '/') {
+    const normalizedBase = envBase.endsWith('/') ? envBase.slice(0, -1) : envBase;
+    return `${normalizedBase}/${cleanPath}`;
+  }
+
+  // Relative path fallback which works seamlessly on root domains (Vercel) and subfolders
+  return `./${cleanPath}`;
 }

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/plan-28-dias", "destination": "/index.html" },
+    { "source": "/plan-28-dias/", "destination": "/index.html" },
+    { "source": "/plan-28-dias/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/plan-28-dias/images/:path*", "destination": "/images/:path*" },
+    { "source": "/plan-28-dias/:path*", "destination": "/:path*" }
+  ]
+}

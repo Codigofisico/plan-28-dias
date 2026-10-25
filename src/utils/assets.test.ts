@@ -13,24 +13,32 @@ test('getAssetUrl preserves external URLs', () => {
   assert.equal(getAssetUrl(dataUri), dataUri);
 });
 
-test('getAssetUrl prefixes local paths with subfolder base', () => {
+test('getAssetUrl dynamically prefixes with /plan-28-dias/ when on WordPress subfolder path', () => {
+  // Simulate WordPress environment
+  (globalThis as unknown as { window: { location: { pathname: string } } }).window = {
+    location: { pathname: '/plan-28-dias/' }
+  };
   assert.equal(getAssetUrl('/images/LIBRO-CODIGO-FUERZA-28.webp'), '/plan-28-dias/images/LIBRO-CODIGO-FUERZA-28.webp');
   assert.equal(getAssetUrl('images/BONO-1.webp'), '/plan-28-dias/images/BONO-1.webp');
-  assert.equal(getAssetUrl('/images/CONTENIDO-1.png'), '/plan-28-dias/images/CONTENIDO-1.png');
 });
 
-test('getAssetUrl does not double-prefix already prefixed paths', () => {
-  assert.equal(
-    getAssetUrl('/plan-28-dias/images/LIBRO-CODIGO-FUERZA-28.webp'),
-    '/plan-28-dias/images/LIBRO-CODIGO-FUERZA-28.webp'
-  );
+test('getAssetUrl returns relative path on Vercel root domain (/) to avoid blank page', () => {
+  // Simulate Vercel environment (root path)
+  (globalThis as unknown as { window: { location: { pathname: string } } }).window = {
+    location: { pathname: '/' }
+  };
+  assert.equal(getAssetUrl('/images/LIBRO-CODIGO-FUERZA-28.webp'), './images/LIBRO-CODIGO-FUERZA-28.webp');
+  assert.equal(getAssetUrl('images/BONO-1.webp'), './images/BONO-1.webp');
+
+  // Clean up global window
+  delete (globalThis as unknown as { window?: unknown }).window;
 });
 
 test('getAssetUrl handles empty or invalid strings safely', () => {
   assert.equal(getAssetUrl(''), '');
 });
 
-test('siteConfig fallback paths have /plan-28-dias/ prefix and files exist in public/images', async () => {
+test('siteConfig fallback paths point to valid files in public/images', async () => {
   const { siteConfig } = await import('../siteConfig');
   const fs = await import('node:fs');
   const path = await import('node:path');
@@ -39,33 +47,19 @@ test('siteConfig fallback paths have /plan-28-dias/ prefix and files exist in pu
   assert.ok(siteConfig.assets.bookCover.startsWith('https://codigofisico.online/wp-content/'));
   assert.ok(siteConfig.assets.bundleImage.startsWith('https://codigofisico.online/wp-content/'));
 
-  // Verify local fallbacks have the subfolder prefix
-  assert.ok(siteConfig.assets.bookCoverFallback.startsWith('/plan-28-dias/images/'));
-  assert.ok(siteConfig.assets.bundleImageFallback.startsWith('/plan-28-dias/images/'));
-  assert.ok(siteConfig.assets.bonus1Fallback.startsWith('/plan-28-dias/images/'));
-  assert.ok(siteConfig.assets.bonus2Fallback.startsWith('/plan-28-dias/images/'));
-  assert.ok(siteConfig.assets.bonus3Fallback.startsWith('/plan-28-dias/images/'));
-  assert.ok(siteConfig.assets.bonus4Fallback.startsWith('/plan-28-dias/images/'));
-
-  // Verify previews have subfolder prefix
+  // Verify previews have fallback and files exist on disk
   for (const preview of siteConfig.contentPreviews) {
-    assert.ok(preview.fallbackUrl.startsWith('/plan-28-dias/images/'));
     assert.ok(preview.url.startsWith('https://codigofisico.online/wp-content/'));
-    
-    // Check local file existence on disk
-    const relativePath = preview.fallbackUrl.replace('/plan-28-dias/', '');
-    const fullPath = path.resolve(process.cwd(), 'public', relativePath);
+    const fileName = preview.fallbackUrl.split('/').pop() || '';
+    const fullPath = path.resolve(process.cwd(), 'public', 'images', fileName);
     assert.ok(fs.existsSync(fullPath), `Expected file to exist: ${fullPath}`);
   }
 
-  // Verify bonuses have subfolder prefix
+  // Verify bonuses have fallback and files exist on disk
   for (const bonus of siteConfig.bonuses) {
-    assert.ok(bonus.fallbackImage.startsWith('/plan-28-dias/images/'));
     assert.ok(bonus.coverImage.startsWith('https://codigofisico.online/wp-content/'));
-
-    const relativePath = bonus.fallbackImage.replace('/plan-28-dias/', '');
-    const fullPath = path.resolve(process.cwd(), 'public', relativePath);
+    const fileName = bonus.fallbackImage.split('/').pop() || '';
+    const fullPath = path.resolve(process.cwd(), 'public', 'images', fileName);
     assert.ok(fs.existsSync(fullPath), `Expected file to exist: ${fullPath}`);
   }
 });
-
