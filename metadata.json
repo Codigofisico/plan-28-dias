@@ -1,0 +1,7 @@
+{
+  "name": "Código Fuerza 28 - Entrena en Casa Sin Equipo",
+  "description": "Landing page de venta directa para Código Fuerza 28: programa de 28 días con calistenia y 4 bonos digitales por $12 USD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
