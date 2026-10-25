@@ -1,3 +1,5 @@
+import { getAssetUrl } from './utils/assets';
+
 export interface BonusItem {
   id: string;
   number: number;
@@ -93,17 +95,17 @@ export const siteConfig = {
 
   assets: {
     bookCover: "https://codigofisico.online/wp-content/uploads/2026/10/LIBRO-CODIGO-FUERZA-28.webp",
-    bookCoverFallback: "/images/LIBRO-CODIGO-FUERZA-28.webp",
+    bookCoverFallback: getAssetUrl("/images/LIBRO-CODIGO-FUERZA-28.webp"),
     bundleImage: "https://codigofisico.online/wp-content/uploads/2026/10/2-CHECKCOUNT-1.webp",
-    bundleImageFallback: "/images/2-CHECKCOUNT-1.webp",
+    bundleImageFallback: getAssetUrl("/images/2-CHECKCOUNT-1.webp"),
     bonus1Cover: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-1.webp",
-    bonus1Fallback: "/images/BONO-1.webp",
+    bonus1Fallback: getAssetUrl("/images/BONO-1.webp"),
     bonus2Cover: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-2.webp",
-    bonus2Fallback: "/images/BONO-2.webp",
+    bonus2Fallback: getAssetUrl("/images/BONO-2.webp"),
     bonus3Cover: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-3.webp",
-    bonus3Fallback: "/images/BONO-3.webp",
+    bonus3Fallback: getAssetUrl("/images/BONO-3.webp"),
     bonus4Cover: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-4.webp",
-    bonus4Fallback: "/images/BONO-4.webp"
+    bonus4Fallback: getAssetUrl("/images/BONO-4.webp")
   },
 
   contentPreviews: [
@@ -112,56 +114,56 @@ export const siteConfig = {
       title: "Fundamentos y posturas iniciales",
       subtitle: "Vista previa del ebook 1",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-1.png",
-      fallbackUrl: "/images/CONTENIDO-1.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-1.png")
     },
     {
       id: 2,
       title: "Desglose técnico paso a paso",
       subtitle: "Vista previa del ebook 2",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-2.png",
-      fallbackUrl: "/images/CONTENIDO-2.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-2.png")
     },
     {
       id: 3,
       title: "Estructura de las semanas",
       subtitle: "Vista previa del ebook 3",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-3.png",
-      fallbackUrl: "/images/CONTENIDO-3.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-3.png")
     },
     {
       id: 4,
       title: "Guía visual de ejecución",
       subtitle: "Vista previa del ebook 4",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-4.png",
-      fallbackUrl: "/images/CONTENIDO-4.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-4.png")
     },
     {
       id: 5,
       title: "Series, descansos y progresiones",
       subtitle: "Vista previa del ebook 5",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-5.png",
-      fallbackUrl: "/images/CONTENIDO-5.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-5.png")
     },
     {
       id: 6,
       title: "Organización de rutinas diarias",
       subtitle: "Vista previa del ebook 6",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-6.png",
-      fallbackUrl: "/images/CONTENIDO-6.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-6.png")
     },
     {
       id: 7,
       title: "Pautas de movilidad y preparación",
       subtitle: "Vista previa del ebook 7",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-7.png",
-      fallbackUrl: "/images/CONTENIDO-7.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-7.png")
     },
     {
       id: 8,
       title: "Plantillas y tablas de control",
       subtitle: "Vista previa del ebook 8",
       url: "https://codigofisico.online/wp-content/uploads/2026/10/CONTENIDO-8.png",
-      fallbackUrl: "/images/CONTENIDO-8.png"
+      fallbackUrl: getAssetUrl("/images/CONTENIDO-8.png")
     }
   ] as PreviewImage[],
 
@@ -216,7 +218,7 @@ export const siteConfig = {
       title: "Método Anti Excusas Diarias",
       benefitHeadline: "Que la falta de motivación no decida si entrenas hoy.",
       coverImage: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-1.webp",
-      fallbackImage: "/images/BONO-1.webp",
+      fallbackImage: getAssetUrl("/images/BONO-1.webp"),
       copy: "Con este recurso conocerás estrategias para identificar las excusas que suelen detenerte, facilitar el inicio de una sesión y organizar hábitos que hagan más sencillo mantener tu entrenamiento.",
       capabilities: [
         "Reconocer excusas frecuentes que provocan postergar.",
@@ -232,7 +234,7 @@ export const siteConfig = {
       title: "Recuperación Activa y Eficiente",
       benefitHeadline: "Aprende cuándo entrenar, cuándo bajar el ritmo y cómo descansar.",
       coverImage: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-2.webp",
-      fallbackImage: "/images/BONO-2.webp",
+      fallbackImage: getAssetUrl("/images/BONO-2.webp"),
       copy: "Con esta guía aprenderás conceptos de movilidad, respiración, descanso y recuperación para comprender por qué no todas las sesiones necesitan tener la misma intensidad.",
       capabilities: [
         "Incorporar movilidad suave en tus días libres.",
@@ -248,7 +250,7 @@ export const siteConfig = {
       title: "Sistema de Progreso Sin Frustración",
       benefitHeadline: "Aprende a reconocer tus avances más allá del espejo.",
       coverImage: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-3.webp",
-      fallbackImage: "/images/BONO-3.webp",
+      fallbackImage: getAssetUrl("/images/BONO-3.webp"),
       copy: "Con este bono aprenderás a observar tu progreso a través de indicadores como repeticiones, resistencia, control corporal y constancia.",
       capabilities: [
         "Registrar tu actividad y esfuerzo de forma simple.",
@@ -264,7 +266,7 @@ export const siteConfig = {
       title: "Nutrición Simple para Fuerza",
       benefitHeadline: "Aprende a organizar tu alimentación sin complicarte.",
       coverImage: "https://codigofisico.online/wp-content/uploads/2026/10/BONO-4.webp",
-      fallbackImage: "/images/BONO-4.webp",
+      fallbackImage: getAssetUrl("/images/BONO-4.webp"),
       copy: "Conocerás principios básicos sobre proteínas, carbohidratos, grasas e hidratación para comprender cómo la alimentación puede complementar tus rutinas.",
       capabilities: [
         "Comprender el rol de los principales macronutrientes.",

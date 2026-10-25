@@ -96,8 +96,12 @@ export const ImageModal: React.FC<ImageModalProps> = ({
             src={currentImage.url}
             alt={currentImage.title}
             onError={(e) => {
-              // fallback to local asset if remote fails
-              (e.target as HTMLImageElement).src = currentImage.fallbackUrl;
+              // fallback to local asset if remote fails with loop protection
+              const target = e.target as HTMLImageElement;
+              if (target.dataset.triedFallback !== 'true') {
+                target.dataset.triedFallback = 'true';
+                target.src = currentImage.fallbackUrl;
+              }
             }}
             className="max-h-[70vh] w-auto max-w-full object-contain rounded shadow-lg border border-white/5 select-none"
           />

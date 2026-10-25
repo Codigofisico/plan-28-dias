@@ -134,7 +134,11 @@ export const EbookPreviewGallery: React.FC = () => {
                             alt={item.title}
                             loading="lazy"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = item.fallbackUrl;
+                              const target = e.target as HTMLImageElement;
+                              if (target.dataset.triedFallback !== 'true') {
+                                target.dataset.triedFallback = 'true';
+                                target.src = item.fallbackUrl;
+                              }
                             }}
                             className="w-full h-full object-contain rounded-lg transition-transform duration-500 group-hover:scale-105"
                           />
@@ -195,7 +199,11 @@ export const EbookPreviewGallery: React.FC = () => {
                     alt={item.title}
                     loading="lazy"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = item.fallbackUrl;
+                      const target = e.target as HTMLImageElement;
+                      if (target.dataset.triedFallback !== 'true') {
+                        target.dataset.triedFallback = 'true';
+                        target.src = item.fallbackUrl;
+                      }
                     }}
                     className="w-full h-full object-contain rounded-lg"
                   />

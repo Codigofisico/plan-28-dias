@@ -118,7 +118,11 @@ export const Interactive3DBook: React.FC<Interactive3DBookProps> = ({ className 
               alt="Código Fuerza 28 Ebook Digital Portada"
               loading="eager"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = siteConfig.assets.bookCoverFallback;
+                const target = e.target as HTMLImageElement;
+                if (target.dataset.triedFallback !== 'true') {
+                  target.dataset.triedFallback = 'true';
+                  target.src = siteConfig.assets.bookCoverFallback;
+                }
               }}
               className="w-full h-full object-contain pointer-events-none"
             />

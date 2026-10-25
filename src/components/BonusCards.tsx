@@ -92,7 +92,11 @@ export const BonusCards: React.FC = () => {
                           alt={`Portada de ${bonus.title}`}
                           loading="lazy"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = bonus.fallbackImage;
+                            const target = e.target as HTMLImageElement;
+                            if (target.dataset.triedFallback !== 'true') {
+                              target.dataset.triedFallback = 'true';
+                              target.src = bonus.fallbackImage;
+                            }
                           }}
                           className="w-full h-auto object-contain rounded-lg"
                         />
