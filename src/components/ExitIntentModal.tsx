@@ -147,11 +147,15 @@ export const ExitIntentModal: React.FC = () => {
           {/* Mini product visual card with price */}
           <div className="rounded-xl bg-[#1b1f2e]/80 border border-amber-500/30 p-3 sm:p-4 mb-4 flex items-center gap-4 text-left">
             <img
-              src={siteConfig.assets.bookCoverFallback}
-              alt="Código Fuerza 28"
-              className="w-16 h-20 object-cover rounded-md shadow-md border border-white/10 shrink-0"
+              src={siteConfig.assets.bundleImage}
+              alt="Pack Completo Código Fuerza 28"
+              className="w-20 h-20 object-contain rounded-md filter drop-shadow-md shrink-0"
               onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
+                const target = e.target as HTMLImageElement;
+                if (target.dataset.triedFallback !== 'true') {
+                  target.dataset.triedFallback = 'true';
+                  target.src = siteConfig.assets.bundleImageFallback;
+                }
               }}
             />
             <div className="flex-1">

@@ -2,117 +2,115 @@ import React from 'react';
 import { siteConfig } from '../siteConfig';
 import { CTAButton } from './CTAButton';
 import { ScarcityCounter } from './ScarcityCounter';
-import { ShieldCheck, Check } from 'lucide-react';
+import { ShieldCheck, Check, Zap } from 'lucide-react';
 
 export const FinalOffer: React.FC = () => {
   return (
     <section className="bg-[#0B0C0E] text-white py-16 sm:py-24 border-b border-white/10 relative overflow-hidden">
-      
-      {/* Subtle background glow */}
+      {/* Subtle gold aura */}
       <div 
         aria-hidden="true" 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-80 bg-[#FFC542]/5 blur-3xl pointer-events-none rounded-full"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-96 bg-[#FFC542]/10 blur-3xl pointer-events-none rounded-full"
       />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center z-10">
         
-        {/* Section Header */}
-        <p className="text-xs font-bold uppercase tracking-widest text-[#FFC542] mb-3">
-          TU MOMENTO DE COMENZAR
+        {/* Section Header matching Elevify */}
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#FFC542] mb-3">
+          EL MOMENTO ES AHORA
         </p>
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-white mb-6 leading-tight [text-wrap:balance]">
-          NO NECESITAS ESPERAR A TENER UN GIMNASIO. NECESITAS SABER CÓMO EMPEZAR.
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-white mb-4 leading-tight [text-wrap:balance]">
+          La próxima vez que vayas a entrenar en casa...
         </h2>
+        <div className="w-16 h-1 bg-[#FFC542] mx-auto my-4 rounded-full" />
         
         <p className="text-base sm:text-lg text-[#A7ABB2] leading-relaxed max-w-2xl mx-auto mb-10">
-          Si quieres organizar tus entrenamientos desde casa, Código Fuerza 28 puede darte un punto de partida. Conoce los fundamentos, sigue las cuatro etapas del programa y utiliza los recursos complementarios para trabajar tus hábitos, recuperación, seguimiento y alimentación.
+          ...vas a saber exactamente qué hacer, cómo ejecutar cada ejercicio con técnica perfecta y cómo progresar sin lastimarte. O puedes seguir improvisando rutinas sueltas esperando que esta vez funcione.
         </p>
 
-        {/* 5-Covers Mini Showcase */}
-        <div className="flex items-center justify-center -space-x-3 sm:-space-x-4 mb-8 overflow-hidden px-4">
-          <img 
-            src={siteConfig.assets.bookCoverFallback} 
-            alt="Código Fuerza 28" 
-            className="w-20 sm:w-28 aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-2xl z-5 transform -rotate-6"
-          />
-          <img 
-            src={siteConfig.assets.bonus1Fallback} 
-            alt="Bono 1" 
-            className="w-18 sm:w-24 aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-xl z-4 transform -rotate-3"
-          />
-          <img 
-            src={siteConfig.assets.bonus2Fallback} 
-            alt="Bono 2" 
-            className="w-18 sm:w-24 aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-xl z-3"
-          />
-          <img 
-            src={siteConfig.assets.bonus3Fallback} 
-            alt="Bono 3" 
-            className="w-18 sm:w-24 aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-xl z-2 transform rotate-3"
-          />
-          <img 
-            src={siteConfig.assets.bonus4Fallback} 
-            alt="Bono 4" 
-            className="w-18 sm:w-24 aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-xl z-1 transform rotate-6"
-          />
-        </div>
+        {/* Closing Offer Card */}
+        <div className="bg-[#17191D] border-2 border-[#FFC542]/40 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+          
+          {/* Top highlight badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFC542]/10 border border-[#FFC542]/30 text-[#FFC542] text-xs font-bold uppercase tracking-wider mb-6">
+            <Zap className="w-3.5 h-3.5 fill-[#FFC542]" />
+            <span>ACCESO VITALICIO INMEDIATO</span>
+          </div>
 
-        {/* Compact Summary Box */}
-        <div className="bg-[#17191D] border border-white/10 rounded-2xl p-6 sm:p-8 max-w-lg mx-auto mb-8 shadow-xl">
-          <div className="flex items-baseline justify-center gap-3 mb-4">
-            <span className="text-sm font-semibold text-white/40 line-through">
-              ${siteConfig.pricing.regularPrice} USD
+          {/* Pack Completo Mockup Showcase */}
+          <div className="flex items-center justify-center mb-6 px-4">
+            <img 
+              src={siteConfig.assets.bundleImage} 
+              alt="Pack Completo Código Fuerza 28 con los 4 Bonos" 
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.dataset.triedFallback !== 'true') {
+                  target.dataset.triedFallback = 'true';
+                  target.src = siteConfig.assets.bundleImageFallback;
+                }
+              }}
+              className="w-full max-w-sm sm:max-w-md h-auto max-h-72 object-contain filter drop-shadow-[0_15px_30px_rgba(255,197,66,0.25)] select-none transition-transform hover:scale-105 duration-300"
+            />
+          </div>
+
+          {/* Pricing tag */}
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="text-base sm:text-lg font-semibold text-white/40 line-through">
+              US$ {siteConfig.pricing.regularPrice}
             </span>
-            <span className="text-3xl sm:text-4xl font-extrabold text-[#FFC542]">
-              ${siteConfig.pricing.discountedPrice} USD
+            <span className="text-4xl sm:text-5xl font-extrabold text-[#FFC542]">
+              US$ {siteConfig.pricing.discountedPrice}
             </span>
-            <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
+            <span className="text-xs font-extrabold text-black bg-[#FFC542] px-2.5 py-1 rounded-full uppercase tracking-wider">
               50% OFF
             </span>
           </div>
 
-          <div className="space-y-1.5 text-xs text-slate-300 text-left mb-6 max-w-sm mx-auto">
+          <p className="text-xs sm:text-sm text-[#A7ABB2] mb-6">
+            Libro digital de 91 páginas + 4 Bonos de regalo · Un solo pago
+          </p>
+
+          {/* Itemized check bullets */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 text-left mb-8 max-w-md mx-auto">
             <div className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#FFC542] shrink-0" />
-              <span>Libro digital Código Fuerza 28 (91 páginas PDF)</span>
+              <Check className="w-4 h-4 text-[#FFC542] shrink-0" />
+              <span>Libro Código Fuerza 28 (PDF)</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#FFC542] shrink-0" />
-              <span>Bono 1: Método Anti Excusas Diarias</span>
+              <Check className="w-4 h-4 text-[#FFC542] shrink-0" />
+              <span>Bono 1: Anti Excusas Diarias</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#FFC542] shrink-0" />
-              <span>Bono 2: Recuperación Activa y Eficiente</span>
+              <Check className="w-4 h-4 text-[#FFC542] shrink-0" />
+              <span>Bono 2: Recuperación Activa</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#FFC542] shrink-0" />
-              <span>Bono 3: Sistema de Progreso Sin Frustración</span>
+              <Check className="w-4 h-4 text-[#FFC542] shrink-0" />
+              <span>Bono 3: Progreso Sin Frustración</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#FFC542] shrink-0" />
+            <div className="flex items-center gap-2 sm:col-span-2 justify-center">
+              <Check className="w-4 h-4 text-[#FFC542] shrink-0" />
               <span>Bono 4: Nutrición Simple para Fuerza</span>
             </div>
           </div>
 
+          {/* Main CTA */}
           <CTAButton 
             size="large"
-            className="w-full text-base font-bold"
+            className="w-full text-base sm:text-lg font-extrabold shadow-xl"
             id="final-offer-cta"
           >
-            QUIERO EMPEZAR MI PROGRAMA DE 28 DÍAS
+            QUIERO EMPEZAR HOY — US$ 12
           </CTAButton>
 
-          {/* Scarcity & High-Demand Counter */}
+          {/* Scarcity counter */}
           <ScarcityCounter variant="full" className="mt-4" />
 
-          <p className="text-xs text-[#A7ABB2] mt-3">
-            Un solo pago · Acceso digital inmediato mediante Hotmart
-          </p>
-        </div>
-
-        <div className="inline-flex items-center gap-2 text-xs text-[#A7ABB2]">
-          <ShieldCheck className="w-4 h-4 text-[#FFC542]" />
-          <span>Garantía de 7 días respaldada por Hotmart</span>
+          {/* Guarantee info */}
+          <div className="flex items-center justify-center gap-2 text-xs text-[#A7ABB2] mt-6 pt-6 border-t border-white/10">
+            <ShieldCheck className="w-4 h-4 text-[#FFC542] shrink-0" />
+            <span>7 días de garantía incondicional. Si no cumple tus expectativas, te devolvemos el 100%.</span>
+          </div>
         </div>
 
       </div>

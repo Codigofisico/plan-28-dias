@@ -1,55 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { siteConfig } from '../siteConfig';
 
+const COUNTDOWN_DURATION_MS = 8 * 60 * 1000; // 8 minutos exactos
+
 export const Navbar: React.FC = () => {
+  const [timeLeft, setTimeLeft] = useState<string>('08:00');
+
+  useEffect(() => {
+    // Persist countdown in sessionStorage so refreshing keeps progress
+    let targetTime: number;
+    try {
+      const stored = sessionStorage.getItem('cf28_header_countdown_target');
+      if (stored) {
+        targetTime = parseInt(stored, 10);
+        // If expired more than 1 minute ago, reset to fresh 8 minutes
+        if (isNaN(targetTime) || Date.now() - targetTime > 60000) {
+          targetTime = Date.now() + COUNTDOWN_DURATION_MS;
+          sessionStorage.setItem('cf28_header_countdown_target', targetTime.toString());
+        }
+      } else {
+        targetTime = Date.now() + COUNTDOWN_DURATION_MS;
+        sessionStorage.setItem('cf28_header_countdown_target', targetTime.toString());
+      }
+    } catch {
+      targetTime = Date.now() + COUNTDOWN_DURATION_MS;
+    }
+
+    const formatRemaining = () => {
+      const remainingMs = Math.max(0, targetTime - Date.now());
+      const totalSeconds = Math.floor(remainingMs / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      const pad = (n: number) => String(n).padStart(2, '0');
+      return `${pad(minutes)}:${pad(seconds)}`;
+    };
+
+    setTimeLeft(formatRemaining());
+    const interval = setInterval(() => {
+      setTimeLeft(formatRemaining());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0B0C0E]/95 backdrop-blur-md border-b border-white/10 transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
-        {/* Zone 1: Brand Wordmark */}
-        <a 
-          href="#" 
-          className="text-base sm:text-lg font-extrabold tracking-wider text-white uppercase whitespace-nowrap shrink-0 hover:text-[#FFC542] transition-colors"
-        >
-          {siteConfig.brand}
-        </a>
-
-        {/* Zone 2: Navigation Links (single-line, clean typography) */}
-        <nav 
-          aria-label="Navegación principal"
-          className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-[#A7ABB2]"
-        >
-          <a href="#metodo" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            El Método
-          </a>
-          <a href="#beneficios" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            Lo que harás
-          </a>
-          <a href="#programa" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            4 Semanas
-          </a>
-          <a href="#contenido" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            Vista Previa
-          </a>
-          <a href="#bonos" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            Bonos
-          </a>
-          <a href="#faq" className="hover:text-white transition-colors whitespace-nowrap shrink-0">
-            Preguntas
-          </a>
-        </nav>
-
-        {/* Zone 3: Single Primary Action */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a
-            href={siteConfig.pricing.checkoutUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-bold text-xs uppercase px-4 py-2 rounded-md bg-[#FFC542] text-[#0B0C0E] hover:bg-[#D89E25] active:scale-95 transition-all whitespace-nowrap shrink-0 shadow-sm"
-          >
-            Empezar por $12
-          </a>
+    <header className="sticky top-0 z-50 w-full select-none shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
+      <a
+        href={siteConfig.pricing.checkoutUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Acceder a la oferta de lanzamiento por $12 USD"
+        className="block w-full py-2.5 sm:py-3 px-3 sm:px-4 text-center text-white transition-opacity hover:opacity-95 cursor-pointer"
+        style={{
+          background: 'linear-gradient(90deg, #2E5372 0%, #4A7FA5 100%)',
+          textShadow: '0 1px 3px rgba(0,0,0,0.35)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap font-extrabold text-[11px] sm:text-[13px] tracking-[0.04em] sm:tracking-[0.08em] uppercase font-['Montserrat',sans-serif]">
+          <span className="flex items-center gap-1.5">
+            <span role="img" aria-label="lanzamiento" className="text-xs sm:text-sm">⚡</span>
+            <span>OFERTA DE LANZAMIENTO</span>
+          </span>
+          <span className="text-white/70">—</span>
+          <span>
+            US${siteConfig.pricing.regularPrice} EN US${siteConfig.pricing.discountedPrice}
+          </span>
+          <span className="text-white/70">—</span>
+          <span>TERMINA EN</span>
+          <span className="inline-block bg-black/30 text-white font-mono font-extrabold text-[11px] sm:text-[13px] py-0.5 sm:py-1 px-2.5 sm:px-3 rounded ml-1 tracking-normal shadow-inner tabular-nums">
+            {timeLeft}
+          </span>
         </div>
-      </div>
+      </a>
     </header>
   );
 };

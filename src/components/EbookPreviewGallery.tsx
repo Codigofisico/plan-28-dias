@@ -75,13 +75,13 @@ export const EbookPreviewGallery: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#FFC542] mb-3">
             <Eye className="w-3.5 h-3.5" />
-            <span>MIRA EL INTERIOR DEL EBOOK</span>
+            <span>MUESTRA REAL DEL CONTENIDO</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-white mb-4 [text-wrap:balance]">
-            NO TIENES QUE IMAGINAR QUÉ HAY DENTRO. MIRA UNA PARTE DEL CONTENIDO.
+            MIRA LO QUE APRENDERÁS DENTRO DE CÓDIGO FUERZA 28
           </h2>
-          <p className="text-base text-[#A7ABB2]">
-            Explora una muestra visual del material que encontrarás en Código Fuerza 28 y conoce cómo está presentado.
+          <p className="text-base sm:text-lg text-[#A7ABB2]">
+            Explora una muestra real del contenido del libro y conoce cómo están presentados los ejercicios, explicaciones y rutinas.
           </p>
         </motion.div>
 
@@ -129,9 +129,14 @@ export const EbookPreviewGallery: React.FC = () => {
                       >
                         {/* Image Canvas with 3/4 ratio */}
                         <div className="relative aspect-[3/4] w-full bg-[#0B0C0E] overflow-hidden flex items-center justify-center p-2.5">
+                          {/* Page Number Badge */}
+                          <div className="absolute top-3 left-3 bg-[#0B0C0E]/90 backdrop-blur-xs border border-[#FFC542]/40 text-[#FFC542] text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded shadow-md z-10">
+                            PÁGINA {item.pageNumber}
+                          </div>
+
                           <img
                             src={item.url}
-                            alt={item.title}
+                            alt={`Muestra de Página ${item.pageNumber} del libro Código Fuerza 28`}
                             loading="lazy"
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
@@ -194,9 +199,12 @@ export const EbookPreviewGallery: React.FC = () => {
                 className="snap-center shrink-0 w-[82vw] max-w-xs bg-[#0B0C0E] border border-white/15 rounded-2xl overflow-hidden shadow-xl flex flex-col active:scale-[0.99] transition-transform"
               >
                 <div className="relative aspect-[3/4] w-full p-2.5 bg-[#0B0C0E] flex items-center justify-center">
+                  <div className="absolute top-3 left-3 bg-[#0B0C0E]/90 backdrop-blur-xs border border-[#FFC542]/40 text-[#FFC542] text-[10px] font-extrabold uppercase px-2 py-0.5 rounded shadow-sm z-10">
+                    PÁGINA {item.pageNumber}
+                  </div>
                   <img
                     src={item.url}
-                    alt={item.title}
+                    alt={`Muestra de Página ${item.pageNumber} del libro Código Fuerza 28`}
                     loading="lazy"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

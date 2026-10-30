@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 export default defineConfig(() => {
   return {
-    base: process.env.VITE_BASE || './',
+    base: '/plan-28-dias/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

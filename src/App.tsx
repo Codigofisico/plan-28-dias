@@ -1,18 +1,15 @@
 import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { TestimonialsCarousel } from './components/TestimonialsCarousel';
 import { ProblemSection } from './components/ProblemSection';
-import { ProductIntroduction } from './components/ProductIntroduction';
 import { Benefits } from './components/Benefits';
-import { FourWeekProgram } from './components/FourWeekProgram';
-import { EbookPreviewGallery } from './components/EbookPreviewGallery';
 import { BookContents } from './components/BookContents';
-import { BonusIntroduction } from './components/BonusIntroduction';
 import { BonusCards } from './components/BonusCards';
+import { TargetAudience } from './components/TargetAudience';
 import { CompleteOffer } from './components/CompleteOffer';
-import { PurchaseSteps } from './components/PurchaseSteps';
-import { Guarantee } from './components/Guarantee';
 import { FAQ } from './components/FAQ';
+import { AboutSection } from './components/AboutSection';
 import { FinalOffer } from './components/FinalOffer';
 import { Footer } from './components/Footer';
 import { MobileStickyCTA } from './components/MobileStickyCTA';
@@ -22,68 +19,59 @@ import { ExitIntentModal } from './components/ExitIntentModal';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0B0C0E] text-white flex flex-col font-['Montserrat',sans-serif] selection:bg-[#FFC542] selection:text-black">
-      {/* Awwwards Golden Reading Progress Indicator */}
+    <div className="min-h-screen bg-[#0B0C0E] text-white flex flex-col font-['Montserrat',sans-serif] selection:bg-[#FFC542] selection:text-black antialiased">
+      {/* Golden Reading Progress Indicator */}
       <ScrollProgressBar />
 
-      {/* Top Bar Navigation */}
+      {/* 1. Header Fijo con Temporizador (Elevify style) */}
       <Navbar />
 
-      {/* Main Content Sections */}
+      {/* Main Flow replicating https://kinesiologia.elevifylab.com/ */}
       <main className="flex-1 w-full">
-        {/* Section 1: Hero Principal */}
+        {/* 2. Hero con Portada Oficial + Carrusel 8 Páginas Interiores */}
         <Hero />
 
-        {/* Section 2: Conexión con el Problema (Light background) */}
+        {/* 3. Carrusel de Testimonios ("NO NOS CREAS A NOSOTROS") */}
+        <TestimonialsCarousel />
+
+        {/* 4. El Problema ("EL PROBLEMA QUE NADIE TE DICE") */}
         <ProblemSection />
 
-        {/* Section 3: Presentación del Producto */}
-        <ProductIntroduction />
-
-        {/* Section 4: Lo Que Podrás Hacer (6 Beneficios Reales) */}
+        {/* 5. La Solución ("LA SOLUCIÓN: EL SISTEMA COMPLETO") */}
         <Benefits />
 
-        {/* Section 5: Tu Programa de Cuatro Semanas */}
-        <FourWeekProgram />
-
-        {/* Section 6: Vista Previa Real del Ebook (8 imágenes oficiales) */}
-        <EbookPreviewGallery />
-
-        {/* Section 7: Qué Incluye el Libro (10 Capítulos) */}
+        {/* 6. El Contenido del Libro (Acordeón 10 Capítulos) */}
         <BookContents />
 
-        {/* Section 8: Presentación de los Bonos */}
-        <BonusIntroduction />
-
-        {/* Section 9: Los Cuatro Bonos Individuales */}
+        {/* 7. Los 4 Bonos Exclusivos ("PERO ESO NO ES TODO") */}
         <BonusCards />
 
-        {/* Section 10: Oferta Reunida Comercial ($12 USD) */}
+        {/* 8. Checklist Interactivo ("ESTO ES PARA TI SI...") */}
+        <TargetAudience />
+
+        {/* 9. Caja de Precio Oficial ("EL PRECIO DE HOY" - $12 USD) */}
         <CompleteOffer />
 
-        {/* Section 11: Cómo Funciona la Compra (3 Pasos) */}
-        <PurchaseSteps />
-
-        {/* Section 12: Confianza y Garantía de 7 Días */}
-        <Guarantee />
-
-        {/* Section 13: Preguntas Frecuentes */}
+        {/* 10. Preguntas Frecuentes ("PREGUNTAS FRECUENTES") */}
         <FAQ />
 
-        {/* Section 14: Cierre Emocional y Comercial */}
+        {/* 11. Sobre Nosotros ("QUIÉNES SOMOS - CÓDIGO FÍSICO") */}
+        <AboutSection />
+
+        {/* 12. Cierre Final Comercial ("EL MOMENTO ES AHORA") */}
         <FinalOffer />
       </main>
 
-      {/* Footer */}
+      {/* 13. Pie de Página */}
       <Footer />
 
-      {/* Sticky Mobile CTA Bar */}
+      {/* 14. Botón Flotante Móvil */}
       <MobileStickyCTA />
 
-      {/* Conversion Booster: Live Verified Sales Notifications */}
+      {/* 15. Notificaciones de Venta Verificada */}
       <SalesNotificationSystem />
 
-      {/* Conversion Booster: Exit Intent Modal */}
+      {/* 16. Modal de Intención de Salida */}
       <ExitIntentModal />
     </div>
   );

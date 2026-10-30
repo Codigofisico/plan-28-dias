@@ -110,12 +110,16 @@ export const SalesNotificationSystem: React.FC = () => {
             {/* Book thumbnail preview */}
             <div className="relative shrink-0 w-12 h-14 rounded-md overflow-hidden bg-zinc-900 border border-amber-500/20 shadow-sm flex items-center justify-center">
               <img
-                src={siteConfig.assets.bookCoverFallback}
+                src={siteConfig.assets.bookCover}
                 alt="Código Fuerza 28"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
+                  const target = e.target as HTMLImageElement;
+                  if (target.dataset.triedFallback !== 'true') {
+                    target.dataset.triedFallback = 'true';
+                    target.src = siteConfig.assets.bookCoverFallback;
+                  }
                 }}
               />
               <span className="absolute bottom-0 inset-x-0 bg-emerald-600/90 text-[8px] text-white font-bold text-center py-0.5 leading-none">
