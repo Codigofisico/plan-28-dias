@@ -42,7 +42,7 @@ export const MobileStickyCTA: React.FC<MobileStickyCTAProps> = ({ isModalOpen = 
               US$ {siteConfig.pricing.discountedPrice}
             </span>
             <span className="text-[10px] font-bold text-black bg-[#FFC542] px-1.5 py-0.5 rounded uppercase">
-              50% OFF
+              {siteConfig.pricing.discountPercent}% OFF
             </span>
           </div>
           <span className="text-[10px] text-[#A7ABB2] flex items-center gap-1 mt-0.5">

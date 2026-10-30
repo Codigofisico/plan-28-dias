@@ -76,10 +76,10 @@ export const siteConfig = {
   method: "Programa de entrenamiento progresivo de 28 días con calistenia y peso corporal",
   
   pricing: {
-    regularPrice: 24,
+    regularPrice: 53,
     discountedPrice: 12,
-    discountPercent: 50,
-    savings: 12,
+    discountPercent: 77,
+    savings: 41,
     currency: "USD",
     currencySymbol: "$",
     checkoutUrl: "https://pay.hotmart.com/X108167592L?checkoutMode=10&offDiscount=CODIGO",
@@ -282,7 +282,7 @@ export const siteConfig = {
       reservedSpots: 46,
       liveViewers: 19,
       couponCode: "CODIGO",
-      regularPrice: 24,
+      regularPrice: 53,
       offerPrice: 12
     } as ScarcityConfig,
     salesNotifications: {

@@ -13,8 +13,8 @@ export const Navbar: React.FC = () => {
       const stored = sessionStorage.getItem('cf28_header_countdown_target');
       if (stored) {
         targetTime = parseInt(stored, 10);
-        // If expired more than 1 minute ago, reset to fresh 8 minutes
-        if (isNaN(targetTime) || Date.now() - targetTime > 60000) {
+        // If expired or invalid, reset immediately to a fresh 8-minute cycle
+        if (isNaN(targetTime) || targetTime <= Date.now()) {
           targetTime = Date.now() + COUNTDOWN_DURATION_MS;
           sessionStorage.setItem('cf28_header_countdown_target', targetTime.toString());
         }
@@ -27,7 +27,19 @@ export const Navbar: React.FC = () => {
     }
 
     const formatRemaining = () => {
-      const remainingMs = Math.max(0, targetTime - Date.now());
+      let remainingMs = targetTime - Date.now();
+
+      // Cuando llega a cero o menos, se reinicia automáticamente a 8 minutos
+      if (remainingMs <= 0) {
+        targetTime = Date.now() + COUNTDOWN_DURATION_MS;
+        try {
+          sessionStorage.setItem('cf28_header_countdown_target', targetTime.toString());
+        } catch {
+          // ignore storage error
+        }
+        remainingMs = COUNTDOWN_DURATION_MS;
+      }
+
       const totalSeconds = Math.floor(remainingMs / 1000);
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;

@@ -23,7 +23,7 @@ export const ScarcityCounter: React.FC<ScarcityCounterProps> = ({
     reservedSpots: 46,
     liveViewers: 19,
     couponCode: 'CODIGO',
-    regularPrice: 24,
+    regularPrice: 53,
     offerPrice: 12
   };
 
@@ -40,7 +40,7 @@ export const ScarcityCounter: React.FC<ScarcityCounterProps> = ({
         <div className="flex items-center justify-between text-xs font-semibold mb-2">
           <span className="flex items-center gap-1.5 text-amber-400">
             <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span>ÚLTIMOS {scarcity.remainingSpots} CUPOS CON 50% OFF</span>
+            <span>ÚLTIMOS {scarcity.remainingSpots} CUPOS CON 77% OFF</span>
           </span>
           <span className="flex items-center gap-1 text-emerald-400 font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
@@ -98,7 +98,7 @@ export const ScarcityCounter: React.FC<ScarcityCounterProps> = ({
       {/* Main text + state */}
       <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
         <p className="text-sm font-semibold text-zinc-200">
-          Cupos promocionales con 50% OFF:
+          Cupos promocionales con 77% OFF:
         </p>
         <p className="text-xs sm:text-sm font-bold text-amber-400">
           {scarcity.reservedSpots} de {scarcity.totalSpots} reservados ({scarcity.percentageReserved}%)

@@ -140,7 +140,7 @@ export const ExitIntentModal: React.FC = () => {
           </h3>
 
           <p className="text-xs sm:text-sm text-zinc-300 mb-4 max-w-md mx-auto">
-            Tu descuento exclusivo del <strong className="text-amber-300">50% OFF</strong> y los{' '}
+            Tu descuento exclusivo del <strong className="text-amber-300">77% OFF (Ahorro de $41 USD)</strong> y los{' '}
             <strong className="text-amber-300">4 bonos de regalo</strong> expiran al abandonar esta página.
           </p>
 
@@ -164,7 +164,7 @@ export const ExitIntentModal: React.FC = () => {
                   ${siteConfig.pricing.regularPrice} USD
                 </span>
                 <span className="text-xs bg-red-500/20 text-red-300 font-bold px-1.5 py-0.5 rounded border border-red-500/30">
-                  50% DESCUENTO
+                  77% DESCUENTO
                 </span>
               </div>
               <div className="text-2xl font-black text-amber-400 font-display">
@@ -189,7 +189,7 @@ export const ExitIntentModal: React.FC = () => {
             onClick={() => trackInitiateCheckout()}
             className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 text-zinc-950 font-black text-sm sm:text-base uppercase tracking-wide hover:shadow-[0_0_30px_rgba(255,197,66,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-xl"
           >
-            <span>SÍ, QUIERO APROVECHAR EL 50% OFF (${siteConfig.pricing.discountedPrice} USD)</span>
+            <span>SÍ, QUIERO APROVECHAR EL 77% OFF (${siteConfig.pricing.discountedPrice} USD)</span>
             <ArrowRight className="w-4 h-4 shrink-0" />
           </a>
 

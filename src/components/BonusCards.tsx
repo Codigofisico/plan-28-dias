@@ -12,7 +12,7 @@ export const BonusCards: React.FC = () => {
       cover: OFFICIAL_ASSETS.bonuses[0].url,
       fallback: siteConfig.assets.bonus1Fallback,
       benefit: "Aprende estrategias para reducir las excusas y facilitar el inicio de tus entrenamientos, incluso cuando tienes poco tiempo o motivación.",
-      oldPrice: "US$15"
+      oldPrice: "US$9"
     },
     {
       num: 2,
@@ -20,7 +20,7 @@ export const BonusCards: React.FC = () => {
       cover: OFFICIAL_ASSETS.bonuses[1].url,
       fallback: siteConfig.assets.bonus2Fallback,
       benefit: "Conoce cómo incorporar movilidad, descanso y recuperación para acompañar tus sesiones de entrenamiento.",
-      oldPrice: "US$12"
+      oldPrice: "US$9"
     },
     {
       num: 3,
@@ -28,7 +28,7 @@ export const BonusCards: React.FC = () => {
       cover: OFFICIAL_ASSETS.bonuses[2].url,
       fallback: siteConfig.assets.bonus3Fallback,
       benefit: "Aprende a observar y registrar tus avances mediante indicadores como fuerza, resistencia y constancia, sin depender únicamente del espejo.",
-      oldPrice: "US$14"
+      oldPrice: "US$9"
     },
     {
       num: 4,
@@ -36,7 +36,7 @@ export const BonusCards: React.FC = () => {
       cover: OFFICIAL_ASSETS.bonuses[3].url,
       fallback: siteConfig.assets.bonus4Fallback,
       benefit: "Conoce principios básicos de alimentación para organizar mejor tus comidas y complementar tus entrenamientos.",
-      oldPrice: "US$12"
+      oldPrice: "US$9"
     }
   ];
 

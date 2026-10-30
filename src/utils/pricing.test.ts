@@ -9,13 +9,14 @@ import {
 } from './pricing';
 import { siteConfig } from '../siteConfig';
 
-test('pricing calculations match business specifications ($24 to $12 = 50% discount and $12 savings)', () => {
-  const result = calculateDiscount(24, 12);
-  assert.equal(result.discountPercent, 50);
-  assert.equal(result.savings, 12);
-  assert.equal(siteConfig.pricing.regularPrice, 24);
+test('pricing calculations match business specifications ($53 to $12 = 77% discount and $41 savings)', () => {
+  const result = calculateDiscount(53, 12);
+  assert.equal(result.discountPercent, 77);
+  assert.equal(result.savings, 41);
+  assert.equal(siteConfig.pricing.regularPrice, 53);
   assert.equal(siteConfig.pricing.discountedPrice, 12);
-  assert.equal(siteConfig.pricing.discountPercent, 50);
+  assert.equal(siteConfig.pricing.discountPercent, 77);
+  assert.equal(siteConfig.pricing.savings, 41);
 });
 
 test('hotmart checkout URL strictly includes checkoutMode=10 and offDiscount=CODIGO', () => {

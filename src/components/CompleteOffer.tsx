@@ -64,7 +64,7 @@ export const CompleteOffer: React.FC = () => {
                   </span>
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-white/50 line-through">
-                  US$12
+                  US$17
                 </span>
               </div>
 
@@ -76,9 +76,12 @@ export const CompleteOffer: React.FC = () => {
                     BONO
                   </span>
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
-                  GRATIS
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-white/40 line-through">US$9</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
+                    GRATIS
+                  </span>
+                </div>
               </div>
 
               <div className="flex justify-between items-center py-3">
@@ -89,9 +92,12 @@ export const CompleteOffer: React.FC = () => {
                     BONO
                   </span>
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
-                  GRATIS
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-white/40 line-through">US$9</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
+                    GRATIS
+                  </span>
+                </div>
               </div>
 
               <div className="flex justify-between items-center py-3">
@@ -102,9 +108,12 @@ export const CompleteOffer: React.FC = () => {
                     BONO
                   </span>
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
-                  GRATIS
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-white/40 line-through">US$9</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
+                    GRATIS
+                  </span>
+                </div>
               </div>
 
               <div className="flex justify-between items-center py-3">
@@ -115,9 +124,12 @@ export const CompleteOffer: React.FC = () => {
                     BONO
                   </span>
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
-                  GRATIS
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-white/40 line-through">US$9</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-emerald-400">
+                    GRATIS
+                  </span>
+                </div>
               </div>
 
             </div>
@@ -125,12 +137,12 @@ export const CompleteOffer: React.FC = () => {
             {/* Total value & savings row */}
             <div className="flex justify-between items-center pt-3 border-t border-white/10 text-sm">
               <span className="font-bold text-white uppercase tracking-wider">VALOR TOTAL</span>
-              <span className="text-base font-bold text-white/40 line-through">US$24</span>
+              <span className="text-base font-bold text-white/40 line-through">US$53</span>
             </div>
 
             <div className="flex justify-between items-center py-2 text-sm">
               <span className="text-emerald-400 font-semibold">Tu ahorro hoy</span>
-              <span className="text-emerald-400 font-extrabold">-US$12 (50% OFF)</span>
+              <span className="text-emerald-400 font-extrabold">-US$41 (77% OFF)</span>
             </div>
 
             {/* Pricing Now */}
