@@ -117,7 +117,7 @@ export const BonusCards: React.FC = () => {
         {/* CTA After Bonuses */}
         <div className="text-center max-w-md mx-auto">
           <CTAButton size="large" className="w-full">
-            QUIERO MI EBOOK + LOS 4 BONOS
+            QUIERO MI EBOOK + LOS 4 BONOS — US$ 6.99
           </CTAButton>
           
           {/* Gatillo de escasez (como en el último botón) */}

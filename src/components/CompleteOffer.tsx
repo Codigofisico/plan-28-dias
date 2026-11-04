@@ -142,7 +142,7 @@ export const CompleteOffer: React.FC = () => {
 
             <div className="flex justify-between items-center py-2 text-sm">
               <span className="text-emerald-400 font-semibold">Tu ahorro hoy</span>
-              <span className="text-emerald-400 font-extrabold">-US$41 (77% OFF)</span>
+              <span className="text-emerald-400 font-extrabold">-US$46.01 (87% OFF)</span>
             </div>
 
             {/* Pricing Now */}
@@ -152,14 +152,14 @@ export const CompleteOffer: React.FC = () => {
               </div>
               <div className="text-5xl sm:text-6xl font-extrabold text-[#FFC542] tracking-tight font-['Montserrat',sans-serif]">
                 <span className="text-2xl sm:text-3xl align-top mr-1">US$</span>
-                12
+                6.99
               </div>
             </div>
 
             {/* Big CTA Button */}
             <div className="mb-6">
               <CTAButton size="large" className="w-full text-base sm:text-lg">
-                QUIERO MI PACK COMPLETO — US$12
+                QUIERO MI PACK COMPLETO — US$ 6.99
               </CTAButton>
               <ScarcityCounter variant="full" className="mt-4" />
             </div>

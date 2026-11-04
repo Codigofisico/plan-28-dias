@@ -62,7 +62,7 @@ export const FinalOffer: React.FC = () => {
               US$ {siteConfig.pricing.discountedPrice}
             </span>
             <span className="text-xs font-extrabold text-black bg-[#FFC542] px-2.5 py-1 rounded-full uppercase tracking-wider">
-              {siteConfig.pricing.discountPercent}% OFF · AHORRA US$41
+              {siteConfig.pricing.discountPercent}% OFF · AHORRA US$46
             </span>
           </div>
 
@@ -100,7 +100,7 @@ export const FinalOffer: React.FC = () => {
             className="w-full text-base sm:text-lg font-extrabold shadow-xl"
             id="final-offer-cta"
           >
-            QUIERO EMPEZAR HOY — US$ 12
+            QUIERO EMPEZAR HOY — US$ 6.99
           </CTAButton>
 
           {/* Scarcity counter */}

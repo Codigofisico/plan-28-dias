@@ -94,7 +94,7 @@ export const Hero: React.FC = () => {
         {/* Main CTA Button & Trust Links (matching Elevify) */}
         <div className="max-w-md mx-auto flex flex-col items-center gap-3 mb-6">
           <CTAButton size="large" className="w-full text-sm sm:text-base">
-            QUIERO EL SISTEMA COMPLETO — US$12
+            QUIERO EL SISTEMA COMPLETO — US$ 6.99
           </CTAButton>
           
           <span className="text-xs text-[#CCD6E0] flex items-center justify-center gap-1.5 text-center">

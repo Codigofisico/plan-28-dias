@@ -34,8 +34,8 @@ export function validateHotmartCheckoutUrl(url: string): {
     const checkoutMode = parsed.searchParams.get("checkoutMode");
 
     return {
-      isValid: hasCorrectHost && checkoutMode === "10" && coupon === "CODIGO",
-      hasCoupon: coupon === "CODIGO",
+      isValid: hasCorrectHost && checkoutMode === "10",
+      hasCoupon: Boolean(coupon),
       couponCode: coupon ?? undefined
     };
   } catch {

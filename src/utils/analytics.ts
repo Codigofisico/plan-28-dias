@@ -16,7 +16,7 @@ declare global {
 /**
  * Tracks InitiateCheckout when a user clicks any checkout CTA
  */
-export const trackInitiateCheckout = (value = 12, currency = 'USD') => {
+export const trackInitiateCheckout = (value = 6.99, currency = 'USD') => {
   if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
     try {
       window.fbq('track', 'InitiateCheckout', {

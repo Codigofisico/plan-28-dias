@@ -14,7 +14,7 @@ interface CTAButtonProps {
 }
 
 export const CTAButton: React.FC<CTAButtonProps> = ({
-  children = "QUIERO EMPEZAR MI PROGRAMA POR $12",
+  children = "QUIERO EMPEZAR MI PROGRAMA POR $6.99",
   className = "",
   size = 'default',
   showArrow = true,

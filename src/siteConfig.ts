@@ -77,12 +77,12 @@ export const siteConfig = {
   
   pricing: {
     regularPrice: 53,
-    discountedPrice: 12,
-    discountPercent: 77,
-    savings: 41,
+    discountedPrice: 6.99,
+    discountPercent: 87,
+    savings: 46.01,
     currency: "USD",
     currencySymbol: "$",
-    checkoutUrl: "https://pay.hotmart.com/X108167592L?checkoutMode=10&offDiscount=CODIGO",
+    checkoutUrl: "https://pay.hotmart.com/X108167592L?checkoutMode=10",
     couponCode: "CODIGO",
     paymentNote: "Pago único · Acceso digital inmediato · Compra segura por Hotmart",
     shortPaymentNote: "Pago único · Ebook digital + 4 bonos · Hotmart"
@@ -266,8 +266,8 @@ export const siteConfig = {
       answer: "El libro contiene recomendaciones para sostener el hábito y continuar progresando después del programa inicial."
     },
     {
-      question: "¿Qué incluye el precio de $12?",
-      answer: "Incluye el ebook principal y los cuatro bonos digitales, mediante un solo pago."
+      question: "¿Qué incluye el precio de $6,99?",
+      answer: "Incluye el libro digital Código Fuerza 28 y los cuatro bonos complementarios descritos en la oferta, mediante un solo pago de $6,99 USD."
     },
     {
       question: "¿Cómo realizo la compra?",
@@ -283,7 +283,7 @@ export const siteConfig = {
       liveViewers: 19,
       couponCode: "CODIGO",
       regularPrice: 53,
-      offerPrice: 12
+      offerPrice: 6.99
     } as ScarcityConfig,
     salesNotifications: {
       enabled: true,

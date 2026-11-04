@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
         href={siteConfig.pricing.checkoutUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Acceder a la oferta de lanzamiento por $12 USD"
+        aria-label={`Acceder a la oferta de lanzamiento por $${siteConfig.pricing.discountedPrice} USD`}
         className="block w-full py-2.5 sm:py-3 px-3 sm:px-4 text-center text-white transition-opacity hover:opacity-95 cursor-pointer"
         style={{
           background: 'linear-gradient(90deg, #2E5372 0%, #4A7FA5 100%)',

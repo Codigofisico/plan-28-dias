@@ -9,21 +9,20 @@ import {
 } from './pricing';
 import { siteConfig } from '../siteConfig';
 
-test('pricing calculations match business specifications ($53 to $12 = 77% discount and $41 savings)', () => {
-  const result = calculateDiscount(53, 12);
-  assert.equal(result.discountPercent, 77);
-  assert.equal(result.savings, 41);
+test('pricing calculations match business specifications ($53 to $6.99 = 87% discount and $46.01 savings)', () => {
+  const result = calculateDiscount(53, 6.99);
+  assert.equal(result.discountPercent, 87);
+  assert.equal(Number(result.savings.toFixed(2)), 46.01);
   assert.equal(siteConfig.pricing.regularPrice, 53);
-  assert.equal(siteConfig.pricing.discountedPrice, 12);
-  assert.equal(siteConfig.pricing.discountPercent, 77);
-  assert.equal(siteConfig.pricing.savings, 41);
+  assert.equal(siteConfig.pricing.discountedPrice, 6.99);
+  assert.equal(siteConfig.pricing.discountPercent, 87);
+  assert.equal(siteConfig.pricing.savings, 46.01);
 });
 
-test('hotmart checkout URL strictly includes checkoutMode=10 and offDiscount=CODIGO', () => {
+test('hotmart checkout URL strictly includes checkoutMode=10', () => {
   const check = validateHotmartCheckoutUrl(siteConfig.pricing.checkoutUrl);
   assert.equal(check.isValid, true);
-  assert.equal(check.hasCoupon, true);
-  assert.equal(check.couponCode, 'CODIGO');
+  assert.equal(siteConfig.pricing.checkoutUrl, 'https://pay.hotmart.com/X108167592L?checkoutMode=10');
 });
 
 test('gallery circular navigation bounds behave correctly', () => {

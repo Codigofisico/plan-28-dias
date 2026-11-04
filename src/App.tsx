@@ -49,7 +49,7 @@ export default function App() {
         {/* 8. Checklist Interactivo ("ESTO ES PARA TI SI...") */}
         <TargetAudience />
 
-        {/* 9. Caja de Precio Oficial ("EL PRECIO DE HOY" - $12 USD) */}
+        {/* 9. Caja de Precio Oficial ("EL PRECIO DE HOY" - $6.99 USD) */}
         <CompleteOffer />
 
         {/* 10. Preguntas Frecuentes ("PREGUNTAS FRECUENTES") */}
